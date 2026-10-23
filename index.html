@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0f1419">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="匯率轉換">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="匯率轉換">
+  <meta name="description" content="即時貨幣匯率轉換器 – 銀行與找換店比較">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+
+  <title>M-貨幣匯率轉換器</title>
+  <style>
+    :root {
+      --bg: #0f1419; --card: #1a2332; --border: #2d3a4f; --text: #e7ecf3;
+      --muted: #8b9bb4; --accent: #3b82f6; --accent-hover: #2563eb;
+      --success: #22c55e; --danger: #ef4444; --warning: #f59e0b;
+      --input-bg: #0d1219; --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: linear-gradient(160deg, #0f1419 0%, #1a1f2e 45%, #0f1419 100%);
+      color: var(--text); min-height: 100vh; min-height: 100dvh;
+      padding: 20px 14px 32px; line-height: 1.5;
+      padding-top: max(20px, env(safe-area-inset-top));
+      padding-bottom: max(32px, env(safe-area-inset-bottom));
+    }
+    .container { max-width: 480px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 22px; }
+    h1 {
+      font-size: 1.55rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      outline: none; cursor: text;
+    }
+    h1:focus { -webkit-text-fill-color: var(--text); }
+    .subtitle { color: var(--muted); font-size: 0.8rem; }
+    .subtitle .name-hint { font-size: 0.65rem; opacity: 0.7; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+      padding: 18px 16px 20px; box-shadow: var(--shadow); margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 1rem; font-weight: 700; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .status-bar {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      gap: 10px; margin-bottom: 16px; font-size: 0.8rem; color: var(--muted);
+    }
+    .status-dot {
+      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--success); margin-right: 5px; animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
+    .btn {
+      background: var(--accent); color: white; border: none; border-radius: 10px;
+      padding: 9px 14px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      transition: background 0.2s, transform 0.1s; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+    }
+    .btn:hover { background: var(--accent-hover); }
+    .btn:active { transform: scale(0.97); }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.05); }
+    label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 5px; font-weight: 500; }
+    select, input[type="number"] {
+      width: 100%; background: var(--input-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 11px 12px; color: var(--text); font-size: 1rem; outline: none; transition: border-color 0.2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238b9bb4' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px;
+    }
+    select:focus, input:focus { border-color: var(--accent); }
+    .currency-grid { display: flex; flex-direction: column; gap: 10px; }
+    .currency-row {
+      display: grid; grid-template-columns: 100px 1fr; gap: 10px; align-items: center;
+      background: var(--input-bg); border: 1px solid var(--border); border-radius: 12px;
+      padding: 10px 12px; transition: border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .currency-row:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
+    .currency-row.active { border-color: var(--accent); background: rgba(59,130,246,0.08); }
+    .currency-label { display: flex; flex-direction: column; gap: 1px; }
+    .currency-code { font-weight: 700; font-size: 1.05rem; letter-spacing: 0.02em; }
+    .currency-name { font-size: 0.68rem; color: var(--muted); }
+    .currency-row.custom .currency-code::after {
+      content: "⌄"; font-size: 0.7rem; color: var(--accent); margin-left: 3px;
+    }
+    .pick-btn {
+      position: absolute; right: 8px; top: 8px; width: 20px; height: 20px;
+      border-radius: 50%; border: 1px solid var(--border); background: var(--card);
+      color: var(--muted); font-size: 0.65rem; line-height: 1; cursor: pointer;
+      display: none; align-items: center; justify-content: center;
+    }
+    .currency-row.custom:hover .pick-btn { display: flex; }
+    .amount-input {
+      text-align: right; font-size: 1.2rem !important; font-weight: 600;
+      font-variant-numeric: tabular-nums; border: none !important; background: transparent !important; padding: 4px 0 !important;
+    }
+    .amount-input::-webkit-inner-spin-button, .amount-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    .rate-info { font-size: 0.7rem; color: var(--muted); text-align: right; margin-top: 2px; min-height: 1.1em; }
+
+    .base-row {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+    }
+    .base-row label { margin-bottom: 0; white-space: nowrap; }
+    .base-row select { flex: 1; max-width: 200px; }
+
+    /* 銀行 vs 找換店 卡片 */
+    .shop-example {
+      font-size: 0.72rem; color: var(--muted); margin-bottom: 12px; line-height: 1.4;
+      background: rgba(245,158,11,0.08); border-radius: 8px; padding: 8px 10px;
+    }
+    .shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .rate-block {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px;
+      padding: 12px; margin-bottom: 12px;
+    }
+    .rate-block-title {
+      font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+    }
+    .rate-block-title.bank { color: #93c5fd; }
+    .rate-block-title.shop { color: #fcd34d; }
+    .shop-result {
+      background: var(--input-bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; margin-top: 8px;
+    }
+    .shop-result-row {
+      display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; font-size: 0.9rem;
+    }
+    .shop-result-label { color: var(--muted); }
+    .shop-result-value { font-weight: 700; font-variant-numeric: tabular-nums; }
+    .winner-tag {
+      display: inline-block; font-size: 0.7rem; padding: 1px 7px; border-radius: 999px;
+      background: rgba(34,197,94,0.2); color: #86efac; margin-left: 6px; font-weight: 600;
+    }
+    .diff-box {
+      margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border);
+      font-size: 0.85rem; line-height: 1.5;
+    }
+    .footer { text-align: center; font-size: 0.75rem; color: var(--muted); margin-top: 18px; line-height: 1.55; }
+    .footer a { color: #60a5fa; text-decoration: none; }
+    .error {
+      background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.4); color: #fca5a5;
+      padding: 11px 14px; border-radius: 10px; margin-bottom: 14px; font-size: 0.85rem; display: none;
+    }
+    .loading { opacity: 0.55; pointer-events: none; }
+    .source-badge {
+      display: inline-block; background: rgba(59,130,246,0.15); color: #93c5fd;
+      font-size: 0.7rem; padding: 2px 7px; border-radius: 999px; margin-left: 4px;
+    }
+    .calc-btn { width: 100%; margin-top: 4px; padding: 12px; font-size: 0.95rem; }
+
+    /* 自選貨幣選擇彈窗 */
+    .picker-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 100;
+      display: none; align-items: flex-end; justify-content: center;
+    }
+    .picker-overlay.show { display: flex; }
+    .picker-sheet {
+      background: var(--card); border: 1px solid var(--border); border-radius: 18px 18px 0 0;
+      width: 100%; max-width: 480px; max-height: 70vh; overflow-y: auto;
+      padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+      animation: slideUp 0.2s ease-out;
+    }
+    @keyframes slideUp { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .picker-head {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;
+      font-weight: 700; font-size: 0.95rem;
+    }
+    .picker-close { background: none; border: none; color: var(--muted); font-size: 1.2rem; cursor: pointer; padding: 4px 8px; }
+    .picker-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .picker-item {
+      background: var(--input-bg); border: 1px solid var(--border); border-radius: 10px;
+      padding: 10px 6px; text-align: center; cursor: pointer; transition: border-color 0.15s;
+    }
+    .picker-item:active { border-color: var(--accent); }
+    .picker-item.selected { border-color: var(--accent); background: rgba(59,130,246,0.12); }
+    .picker-item .p-code { font-weight: 700; font-size: 0.95rem; }
+    .picker-item .p-name { font-size: 0.65rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 id="appName" contenteditable="true" spellcheck="false">M-貨幣匯率轉換器</h1>
+      <p class="subtitle">即時換算 · 銀行 vs 找換店 vs 歐洲央行 <span class="name-hint">（點擊上方名稱可自行編輯）</span></p>
+    </header>
+
+    <div class="error" id="errorBox"></div>
+
+    <!-- 卡片一：即時匯率換算 -->
+    <div class="card" id="mainCard">
+      <div class="card-title">💱 即時匯率換算</div>
+
+      <div class="status-bar">
+        <div>
+          <span class="status-dot"></span>
+          <span id="rateDate">載入中...</span>
+          <span class="source-badge">Frankfurter</span>
+          <div class="update-time" id="updateTime" style="font-size:0.65rem;color:var(--muted);margin-top:2px;">尚未更新</div>
+        </div>
+        <button class="btn btn-secondary" id="refreshBtn" onclick="fetchRates()">↻ 更新</button>
+      </div>
+
+      <div class="base-row">
+        <label for="baseSelect">基準貨幣</label>
+        <select id="baseSelect" onchange="onBaseChange()"></select>
+      </div>
+
+      <div class="currency-grid" id="currencyGrid"></div>
+    </div>
+
+    <!-- 卡片二：銀行 vs 找換店比較 -->
+    <div class="card">
+      <div class="card-title">🏦 vs 🏪 銀行與找換店比較</div>
+
+      <div class="shop-example">
+        自行輸入銀行與找換店的牌價（例：港元 780 = 美元 100），再輸入你持有的金額，即可同時對照銀行、找換店與歐洲央行三方結果。
+      </div>
+
+      <div class="shop-grid">
+        <div>
+          <label>我付出的貨幣</label>
+          <select id="shopFrom" onchange="calcShop()"></select>
+        </div>
+        <div>
+          <label>我得到的貨幣</label>
+          <select id="shopTo" onchange="calcShop()"></select>
+        </div>
+        <div>
+          <label>我實際持有的金額</label>
+          <input type="number" id="shopMyAmt" value="1000" step="any" min="0" inputmode="decimal" oninput="calcShop()">
+        </div>
+      </div>
+
+      <div class="rate-block">
+        <div class="rate-block-title bank">🏦 銀行牌價（自行輸入）</div>
+        <div class="shop-grid">
+          <div>
+            <label>付出金額（牌價）</label>
+            <input type="number" id="bankFromAmt" value="785" step="any" min="0" inputmode="decimal" oninput="calcShop()">
+          </div>
+          <div>
+            <label>得到金額（牌價）</label>
+            <input type="number" id="bankToAmt" value="100" step="any" min="0" inputmode="decimal" oninput="calcShop()">
+          </div>
+        </div>
+      </div>
+
+      <div class="rate-block">
+        <div class="rate-block-title shop">🏪 找換店牌價（自行輸入）</div>
+        <div class="shop-grid">
+          <div>
+            <label>付出金額（牌價）</label>
+            <input type="number" id="shopFromAmt" value="780" step="any" min="0" inputmode="decimal" oninput="calcShop()">
+          </div>
+          <div>
+            <label>得到金額（牌價）</label>
+            <input type="number" id="shopToAmt" value="100" step="any" min="0" inputmode="decimal" oninput="calcShop()">
+          </div>
+        </div>
+      </div>
+
+      <button class="btn calc-btn" onclick="calcShop()">計算並比較三方結果</button>
+
+      <div class="shop-result" id="shopResult" style="display:none;">
+        <div class="shop-result-row">
+          <span class="shop-result-label">按銀行可換得</span>
+          <span class="shop-result-value" id="bankGetText">—</span>
+        </div>
+        <div class="shop-result-row">
+          <span class="shop-result-label">按找換店可換得</span>
+          <span class="shop-result-value" id="shopGetText">—</span>
+        </div>
+        <div class="shop-result-row">
+          <span class="shop-result-label">按歐洲央行可換得</span>
+          <span class="shop-result-value" id="ecbGetText">—</span>
+        </div>
+        <div class="diff-box" id="diffBox"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      匯率來源：<a href="https://frankfurter.dev/" target="_blank" rel="noopener">Frankfurter</a>（ECB）+ 新台幣補充來源<br>
+      銀行與找換店匯率為自行輸入，僅供對照參考。<br>
+      實際交易請以銀行／券商／找換店即時報價為準。
+    </div>
+  </div>
+
+  <!-- 自選貨幣選擇彈窗 -->
+  <div class="picker-overlay" id="pickerOverlay" onclick="if(event.target===this)closePicker()">
+    <div class="picker-sheet">
+      <div class="picker-head">
+        <span id="pickerTitle">選擇自選貨幣</span>
+        <button class="picker-close" onclick="closePicker()">✕</button>
+      </div>
+      <div class="picker-grid" id="pickerGrid"></div>
+    </div>
+  </div>
+
+  <script>
+    const FIXED_CURRENCIES = [
+      { code: 'USD', name: '美元' }, { code: 'GBP', name: '英鎊' },
+      { code: 'EUR', name: '歐元' }, { code: 'HKD', name: '港幣' }
+    ];
+    const CUSTOM_OPTIONS = [
+      { code: 'TWD', name: '新台幣' }, { code: 'CNY', name: '人民幣' }, { code: 'JPY', name: '日圓' },
+      { code: 'SGD', name: '新加坡元' }, { code: 'AUD', name: '澳元' }, { code: 'CAD', name: '加元' },
+      { code: 'CHF', name: '瑞士法郎' }, { code: 'NZD', name: '紐西蘭元' }, { code: 'KRW', name: '韓元' },
+      { code: 'THB', name: '泰銖' }, { code: 'INR', name: '印度盧比' }, { code: 'MYR', name: '馬來西亞令吉' },
+      { code: 'PHP', name: '菲律賓披索' }, { code: 'IDR', name: '印尼盾' }, { code: 'SEK', name: '瑞典克朗' },
+      { code: 'NOK', name: '挪威克朗' }, { code: 'DKK', name: '丹麥克朗' }, { code: 'PLN', name: '波蘭茲羅提' },
+      { code: 'TRY', name: '土耳其里拉' }, { code: 'ZAR', name: '南非蘭特' }, { code: 'BRL', name: '巴西雷亞爾' },
+      { code: 'MXN', name: '墨西哥披索' }, { code: 'ILS', name: '以色列新謝克爾' }, { code: 'CZK', name: '捷克克朗' },
+      { code: 'HUF', name: '匈牙利福林' }, { code: 'RON', name: '羅馬尼亞列伊' }, { code: 'ISK', name: '冰島克朗' }
+    ];
+
+    const LS = {
+      custom1: 'mfx_custom1', custom2: 'mfx_custom2',
+      base: 'mfx_base', appName: 'mfx_appName'
+    };
+
+    // 讀取 localStorage 記憶（離開再進來也不會改變選擇）
+    let custom1 = localStorage.getItem(LS.custom1) || 'TWD';
+    let custom2 = localStorage.getItem(LS.custom2) || 'CNY';
+    let baseCode = localStorage.getItem(LS.base) || 'USD';
+    let rates = {}, isUpdating = false;
+    let pickingSlot = null, pressTimer = null;
+
+    function allCurrencyList() { return [...FIXED_CURRENCIES, ...CUSTOM_OPTIONS]; }
+    function findCur(code) {
+      return allCurrencyList().find(c => c.code === code) || { code, name: code };
+    }
+
+    function init() {
+      // App 名稱記憶
+      const savedName = localStorage.getItem(LS.appName);
+      const h1 = document.getElementById('appName');
+      if (savedName) h1.textContent = savedName;
+      h1.addEventListener('blur', () => {
+        const v = h1.textContent.trim() || 'M-貨幣匯率轉換器';
+        h1.textContent = v;
+        localStorage.setItem(LS.appName, v);
+      });
+      h1.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); h1.blur(); } });
+
+      const lastUpd = localStorage.getItem('mfx_lastUpdate');
+      if (lastUpd) setUpdateTime(lastUpd);
+      populateBaseSelect();
+      populateShopSelects();
+      renderCurrencyRows();
+      fetchRates();
+      registerSW();
+    }
+
+    function registerSW() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      }
+    }
+
+    function populateBaseSelect() {
+      const sel = document.getElementById('baseSelect');
+      sel.innerHTML = allCurrencyList().map(c => `<option value="${c.code}">${c.code} - ${c.name}</option>`).join('');
+      if (!allCurrencyList().some(c => c.code === baseCode)) baseCode = 'USD';
+      sel.value = baseCode;
+    }
+
+    function populateShopSelects() {
+      const opts = allCurrencyList().map(c => `<option value="${c.code}">${c.code} - ${c.name}</option>`).join('');
+      const from = document.getElementById('shopFrom');
+      const to = document.getElementById('shopTo');
+      from.innerHTML = opts; to.innerHTML = opts;
+      from.value = 'HKD'; to.value = 'USD';
+    }
+
+    function onBaseChange() {
+      baseCode = document.getElementById('baseSelect').value;
+      localStorage.setItem(LS.base, baseCode);
+      // 以基準貨幣目前欄位值重算全部
+      const baseInput = document.querySelector(`input[data-code="${baseCode}"]`);
+      if (baseInput && baseInput.value) {
+        const amount = parseFloat(baseInput.value);
+        if (!isNaN(amount) && amount > 0 && (baseCode === 'USD' || rates[baseCode])) {
+          updateAllFrom(baseCode, amount);
+        }
+      }
+      updateRateInfos();
+    }
+
+    function getAllCurrencies() {
+      return [...FIXED_CURRENCIES, findCur(custom1), findCur(custom2)];
+    }
+
+    function renderCurrencyRows() {
+      document.getElementById('currencyGrid').innerHTML = getAllCurrencies().map((c, i) => {
+        const isCustom = i >= 4;
+        return `
+        <div class="currency-row ${isCustom ? 'custom' : ''}" id="row-${c.code}" ${isCustom ? `oncontextmenu="event.preventDefault();openPicker(${i - 4})"` : ''}>
+          <div class="currency-label">
+            <span class="currency-code">${c.code}</span>
+            <span class="currency-name">${c.name}</span>
+          </div>
+          <div>
+            <input type="number" class="amount-input" data-code="${c.code}" placeholder="0.00" step="any" min="0" inputmode="decimal"
+                   oninput="onAmountInput('${c.code}', this.value)" onfocus="this.select()">
+            <div class="rate-info" id="rate-${c.code}"></div>
+          </div>
+          ${isCustom ? `<button class="pick-btn" onclick="event.stopPropagation();openPicker(${i - 4})" title="更換貨幣">✎</button>` : ''}
+        </div>`;
+      }).join('');
+
+      // 自選列：長按（觸控）開啟選擇器
+      [4, 5].forEach(idx => {
+        const row = document.getElementById('currencyGrid').children[idx];
+        if (!row) return;
+        row.addEventListener('touchstart', (e) => {
+          pressTimer = setTimeout(() => openPicker(idx - 4), 500);
+        }, { passive: true });
+        ['touchend', 'touchmove', 'touchcancel'].forEach(ev =>
+          row.addEventListener(ev, () => clearTimeout(pressTimer), { passive: true })
+        );
+      });
+      updateRateInfos();
+    }
+
+    /* ---- 自選貨幣選擇彈窗 ---- */
+    function openPicker(slot) {
+      pickingSlot = slot;
+      const current = slot === 0 ? custom1 : custom2;
+      document.getElementById('pickerTitle').textContent = `選擇自選貨幣 ${slot + 1}`;
+      document.getElementById('pickerGrid').innerHTML = CUSTOM_OPTIONS.map(c => `
+        <div class="picker-item ${c.code === current ? 'selected' : ''}" onclick="pickCurrency('${c.code}')">
+          <div class="p-code">${c.code}</div>
+          <div class="p-name">${c.name}</div>
+        </div>`).join('');
+      document.getElementById('pickerOverlay').classList.add('show');
+    }
+
+    function closePicker() {
+      document.getElementById('pickerOverlay').classList.remove('show');
+      pickingSlot = null;
+    }
+
+    function pickCurrency(code) {
+      if (pickingSlot === null) return;
+      if (pickingSlot === 0) {
+        if (code === custom2) custom2 = custom1;   // 互換，避免重複
+        custom1 = code;
+        localStorage.setItem(LS.custom1, custom1);
+        localStorage.setItem(LS.custom2, custom2);
+      } else {
+        if (code === custom1) custom1 = custom2;
+        custom2 = code;
+        localStorage.setItem(LS.custom1, custom1);
+        localStorage.setItem(LS.custom2, custom2);
+      }
+      // 保留基準貨幣欄位的數值再重繪
+      const baseInput = document.querySelector(`input[data-code="${baseCode}"]`);
+      const savedVal = baseInput ? baseInput.value : '';
+      renderCurrencyRows();
+      if (savedVal) {
+        const inp = document.querySelector(`input[data-code="${baseCode}"]`);
+        if (inp) inp.value = savedVal;
+        const amount = parseFloat(savedVal);
+        if (!isNaN(amount) && amount > 0) updateAllFrom(baseCode, amount);
+      }
+      calcShop();
+      closePicker();
+    }
+
+    /* ---- 匯率 ---- */
+    async function fetchRates() {
+      const btn = document.getElementById('refreshBtn');
+      const errorBox = document.getElementById('errorBox');
+      const mainCard = document.getElementById('mainCard');
+      btn.disabled = true; btn.textContent = '更新中...';
+      mainCard.classList.add('loading'); errorBox.style.display = 'none';
+
+      try {
+        const frankSymbols = allCurrencyList().map(c => c.code)
+          .filter(c => c !== 'USD' && c !== 'TWD').join(',');
+        const res = await fetch(`https://api.frankfurter.dev/v1/latest?base=USD&symbols=${frankSymbols}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        rates = { USD: 1, ...data.rates };
+
+        // 新台幣補充來源（法蘭克福 API 不提供 TWD）；失敗時靜默略過
+        try {
+          const twdRes = await fetch('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.min.json');
+          if (twdRes.ok) {
+            const twdData = await twdRes.json();
+            if (twdData.usd?.twd) rates['TWD'] = twdData.usd.twd;
+          }
+        } catch (e) {}
+
+        document.getElementById('rateDate').textContent = `匯率日期：${data.date}`;
+        setUpdateTime(`✓ 已更新 ${nowStr()}`);
+        const baseInput = document.querySelector(`input[data-code="${baseCode}"]`);
+        if (baseInput && baseInput.value) {
+          const amount = parseFloat(baseInput.value);
+          if (!isNaN(amount) && amount > 0) updateAllFrom(baseCode, amount);
+        } else if (baseInput) {
+          baseInput.value = '100';
+          updateAllFrom(baseCode, 100);
+        }
+        updateRateInfos();
+        calcShop();
+      } catch (err) {
+        errorBox.textContent = `無法取得匯率：${err.message}`;
+        errorBox.style.display = 'block';
+        document.getElementById('rateDate').textContent = '匯率載入失敗';
+        setUpdateTime(`✗ 更新失敗 ${nowStr()}（顯示上次成功資料）`);
+      } finally {
+        btn.disabled = false; btn.textContent = '↻ 更新';
+        mainCard.classList.remove('loading');
+      }
+    }
+
+    function updateRateInfos() {
+      const base = findCur(baseCode);
+      getAllCurrencies().forEach(c => {
+        const el = document.getElementById(`rate-${c.code}`);
+        if (!el) return;
+        if (c.code === baseCode) el.textContent = '基準貨幣';
+        else if (rates[c.code] && rates[baseCode]) {
+          const r = rates[c.code] / rates[baseCode];
+          el.textContent = `1 ${baseCode} ≈ ${formatNumber(r)} ${c.code}`;
+        } else el.textContent = '此貨幣暫無匯率';
+      });
+    }
+
+    function onAmountInput(fromCode, value) {
+      if (isUpdating) return;
+      document.querySelectorAll('.currency-row').forEach(r => r.classList.remove('active'));
+      const row = document.getElementById(`row-${fromCode}`);
+      if (row) row.classList.add('active');
+      const amount = parseFloat(value);
+      if (isNaN(amount) || amount < 0) { clearOthers(fromCode); return; }
+      updateAllFrom(fromCode, amount);
+    }
+
+    function updateAllFrom(fromCode, amount) {
+      if (fromCode !== 'USD' && !rates[fromCode]) return;
+      isUpdating = true;
+      const amountInUSD = fromCode === 'USD' ? amount : amount / rates[fromCode];
+      getAllCurrencies().forEach(c => {
+        if (c.code === fromCode) return;
+        const input = document.querySelector(`input[data-code="${c.code}"]`);
+        if (!input) return;
+        if (c.code === 'USD') input.value = formatNumber(amountInUSD);
+        else if (rates[c.code]) input.value = formatNumber(amountInUSD * rates[c.code]);
+        else input.value = '';
+      });
+      isUpdating = false;
+    }
+
+    function clearOthers(except) {
+      isUpdating = true;
+      document.querySelectorAll('.amount-input').forEach(i => { if (i.dataset.code !== except) i.value = ''; });
+      isUpdating = false;
+    }
+
+    function nowStr() {
+      const d = new Date();
+      const p = (n) => String(n).padStart(2, '0');
+      return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+    }
+    function setUpdateTime(text) {
+      localStorage.setItem('mfx_lastUpdate', text);
+      document.getElementById('updateTime').textContent = text;
+    }
+
+    function formatNumber(num) {
+      if (typeof num !== 'number' || isNaN(num) || !isFinite(num)) return '0';
+      if (num === 0) return '0';
+      if (Math.abs(num) >= 1000) return num.toFixed(2);
+      if (Math.abs(num) >= 1) return num.toFixed(4);
+      if (Math.abs(num) >= 0.01) return num.toFixed(6);
+      return num.toFixed(8);
+    }
+
+    /* ---- 銀行 vs 找換店 ---- */
+    function calcShop() {
+      const fromCode = document.getElementById('shopFrom').value;
+      const toCode = document.getElementById('shopTo').value;
+      const myAmt = parseFloat(document.getElementById('shopMyAmt').value);
+      const bankFrom = parseFloat(document.getElementById('bankFromAmt').value);
+      const bankTo = parseFloat(document.getElementById('bankToAmt').value);
+      const shopFromAmt = parseFloat(document.getElementById('shopFromAmt').value);
+      const shopToAmt = parseFloat(document.getElementById('shopToAmt').value);
+
+      const resultBox = document.getElementById('shopResult');
+      if (!myAmt || myAmt <= 0 || fromCode === toCode) {
+        resultBox.style.display = 'none';
+        return;
+      }
+
+      let bankGet = null, shopGet = null, ecbGet = null;
+      const hasBank = bankFrom > 0 && bankTo > 0;
+      const hasShop = shopFromAmt > 0 && shopToAmt > 0;
+      const hasEcb = rates[fromCode] !== undefined && rates[toCode] !== undefined;
+
+      if (hasBank) bankGet = myAmt * (bankTo / bankFrom);
+      if (hasShop) shopGet = myAmt * (shopToAmt / shopFromAmt);
+      if (hasEcb) ecbGet = myAmt * (rates[toCode] / rates[fromCode]);
+
+      if (!hasBank && !hasShop && !hasEcb) {
+        resultBox.style.display = 'none';
+        return;
+      }
+
+      resultBox.style.display = 'block';
+
+      const candidates = [];
+      if (hasBank) candidates.push({ name: '銀行', val: bankGet });
+      if (hasShop) candidates.push({ name: '找換店', val: shopGet });
+      if (hasEcb) candidates.push({ name: '歐洲央行', val: ecbGet });
+      candidates.sort((a, b) => b.val - a.val);
+      const bestName = candidates.length ? candidates[0].name : '';
+
+      document.getElementById('bankGetText').innerHTML = hasBank
+        ? `${formatNumber(bankGet)} ${toCode}${bestName === '銀行' ? '<span class="winner-tag">最優</span>' : ''}`
+        : '（未輸入）';
+      document.getElementById('shopGetText').innerHTML = hasShop
+        ? `${formatNumber(shopGet)} ${toCode}${bestName === '找換店' ? '<span class="winner-tag">最優</span>' : ''}`
+        : '（未輸入）';
+      document.getElementById('ecbGetText').innerHTML = hasEcb
+        ? `${formatNumber(ecbGet)} ${toCode}${bestName === '歐洲央行' ? '<span class="winner-tag">最優</span>' : ''}`
+        : '（暫無匯率）';
+
+      let html = '';
+      if (hasBank && hasShop) {
+        const diff = shopGet - bankGet;
+        const pct = bankGet ? (diff / bankGet) * 100 : 0;
+        if (Math.abs(pct) < 0.1) html += `<div>銀行與找換店幾乎相同。</div>`;
+        else if (diff > 0) html += `<div>找換店比銀行多給約 <strong style="color:var(--success)">${formatNumber(diff)} ${toCode}</strong>（+${pct.toFixed(2)}%）。</div>`;
+        else html += `<div>銀行比找換店多給約 <strong style="color:var(--success)">${formatNumber(Math.abs(diff))} ${toCode}</strong>（${pct.toFixed(2)}%）。</div>`;
+      }
+      if (hasEcb && (hasBank || hasShop)) {
+        const ref = hasShop ? shopGet : bankGet;
+        const refName = hasShop ? '找換店' : '銀行';
+        const d = ref - ecbGet;
+        const p = ecbGet ? (d / ecbGet) * 100 : 0;
+        html += `<div style="margin-top:6px;">${refName} 相對歐洲央行：`;
+        if (Math.abs(p) < 0.15) html += `幾乎持平。`;
+        else if (d > 0) html += `多給約 <strong style="color:var(--success)">${formatNumber(d)} ${toCode}</strong>（+${p.toFixed(2)}%）。`;
+        else html += `少給約 <strong style="color:var(--danger)">${formatNumber(Math.abs(d))} ${toCode}</strong>（${p.toFixed(2)}%）。`;
+        html += `</div>`;
+      }
+      if (bestName) html += `<div style="margin-top:8px;font-weight:600;">目前最優：<span style="color:var(--success)">${bestName}</span></div>`;
+      document.getElementById('diffBox').innerHTML = html || '<div style="color:var(--muted);">請至少輸入銀行或找換店其中一方的牌價。</div>';
+    }
+
+    init();
+  </script>
+</body>
+</html>
